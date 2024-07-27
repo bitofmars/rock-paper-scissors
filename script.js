@@ -38,4 +38,10 @@ function playGame(){
         computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
     }
+
+    if (humanScore > computerScore){
+        console.log("Congratulations! You won 🎉");
+    }else{
+        console.log("Sorry, you lost 😞");
+    }
 }
