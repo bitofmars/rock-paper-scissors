@@ -18,3 +18,15 @@ let computerSelection = getComputerChoice();
 
 let humanScore = 0;
 let computerScore = 0;
+
+function playRound(humanSelection, computerSelection){
+    if (humanSelection === computerSelection){
+        console.log("It's a tie! You both chose " + humanSelection + ".");
+    }else if ((humanSelection === "rock" && computerSelection === "scissors") ||
+    (humanSelection === "paper" && computerSelection === "rock") ||
+    (humanSelection === "scissors" && computerSelection === "paper")){
+        console.log("You won! " + humanSelection + " beats " + computerSelection + ".");
+    }else {
+        console.log("You lost! " + computerSelection + " beats " + humanSelection + ".");
+    }
+}
