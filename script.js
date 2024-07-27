@@ -1,16 +1,16 @@
 function getComputerChoice(){
     let computerChoice = Math.floor(Math.random() * 3 + 1);
     if (computerChoice === 1){
-        return "rock";
+        return "ROCK";
     }else if (computerChoice === 2){
-        return "paper";
+        return "PAPER";
     }else{
-        return "scissors";
+        return "SCISSORS";
     }
 }
 
 function getHumanChoice(){
-    return prompt("Rock, paper or scissors?");
+    return prompt("Rock, paper or scissors?").toUpperCase();
 }
 
 function playGame(){
@@ -20,14 +20,14 @@ function playGame(){
     let computerScore = 0;
 
     function playRound(humanSelection, computerSelection){
-        if (humanSelection === computerSelection){
+        if(humanSelection === computerSelection){
             console.log("It's a tie! You both chose " + humanSelection + ".");
-        }else if ((humanSelection === "rock" && computerSelection === "scissors") ||
-        (humanSelection === "paper" && computerSelection === "rock") ||
-        (humanSelection === "scissors" && computerSelection === "paper")){
+        }else if ((humanSelection === "ROCK" && computerSelection === "SCISSORS") ||
+        (humanSelection === "PAPER" && computerSelection === "ROCK") ||
+        (humanSelection === "SCISSORS" && computerSelection === "PAPER")){
             console.log("You won! " + humanSelection + " beats " + computerSelection + ".");
             humanScore++;
-        }else {
+        }else{
             console.log("You lost! " + computerSelection + " beats " + humanSelection + ".");
             computerScore++;
         }
@@ -39,9 +39,13 @@ function playGame(){
         playRound(humanSelection, computerSelection);
     }
 
-    if (humanScore > computerScore){
+    if (humanScore === computerScore){
+        console.log("It's a tie! 🤯")
+    }else if (humanScore > computerScore){
         console.log("Congratulations! You won 🎉");
     }else{
         console.log("Sorry, you lost 😞");
     }
 }
+
+playGame();
